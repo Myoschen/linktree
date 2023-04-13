@@ -49,7 +49,7 @@ function Links() {
       <div className="mt-4 space-y-6 border p-6">
         {links.map((link, index) => (
           <div
-            className="relative grid grid-cols-2 gap-8 border p-6"
+            className="relative grid gap-8 border p-6 md:grid-cols-2"
             key={index}
           >
             <button
