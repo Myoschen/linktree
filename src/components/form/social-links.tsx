@@ -43,7 +43,7 @@ function SocialLinks() {
               id="facebook"
               className="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm"
               type="text"
-              placeholder="https://www.facebook.com/"
+              placeholder="https://www.facebook.com/yourname"
               value={facebook}
               onChange={(e) =>
                 setFormData((prev) => ({...prev, facebook: e.target.value}))
@@ -63,7 +63,7 @@ function SocialLinks() {
               id="instagram"
               className="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm"
               type="text"
-              placeholder="https://www.instagram.com/"
+              placeholder="https://www.instagram.com/yourname"
               value={instagram}
               onChange={(e) =>
                 setFormData((prev) => ({...prev, instagram: e.target.value}))
@@ -83,7 +83,7 @@ function SocialLinks() {
               id="twitter"
               className="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm"
               type="text"
-              placeholder="https://twitter.com/"
+              placeholder="https://twitter.com/yourname"
               value={twitter}
               onChange={(e) =>
                 setFormData((prev) => ({...prev, twitter: e.target.value}))
@@ -103,7 +103,7 @@ function SocialLinks() {
               id="youtube"
               className="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm"
               type="text"
-              placeholder="https://www.youtube.com/"
+              placeholder="https://www.youtube.com/yourname"
               value={youtube}
               onChange={(e) =>
                 setFormData((prev) => ({...prev, youtube: e.target.value}))
@@ -123,7 +123,7 @@ function SocialLinks() {
               id="twitch"
               className="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm"
               type="text"
-              placeholder="https://www.twitch.com/"
+              placeholder="https://twitch.tv/yourname"
               value={twitch}
               onChange={(e) =>
                 setFormData((prev) => ({...prev, twitch: e.target.value}))
@@ -143,10 +143,13 @@ function SocialLinks() {
               id="email"
               className="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm"
               type="text"
-              placeholder="example@example.com"
+              placeholder="yourname@example.com"
               value={email}
               onChange={(e) =>
-                setFormData((prev) => ({...prev, email: e.target.value}))
+                setFormData((prev) => ({
+                  ...prev,
+                  email: `mailto:${e.target.value}`,
+                }))
               }
             />
           </div>
@@ -163,7 +166,7 @@ function SocialLinks() {
               id="github"
               className="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm"
               type="text"
-              placeholder="https://github.com/"
+              placeholder="https://github.com/yourname"
               value={github}
               onChange={(e) =>
                 setFormData((prev) => ({...prev, github: e.target.value}))
@@ -183,7 +186,7 @@ function SocialLinks() {
               id="linkedin"
               className="block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm"
               type="text"
-              placeholder="https://www.linkedin.com/"
+              placeholder="https://www.linkedin.com/yourname"
               value={linkedin}
               onChange={(e) =>
                 setFormData((prev) => ({...prev, linkedin: e.target.value}))
