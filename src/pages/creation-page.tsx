@@ -3,6 +3,7 @@ import {useState} from 'react';
 import {Links, Profile, SocialLinks} from '@/components/form';
 import Linktree from '@/components/linktree';
 import {FormProvider, useFormContext} from '@/contexts/form';
+import {IconShape} from '@tabler/icons-react';
 
 function Forms() {
   const {formData, setFormData} = useFormContext();
@@ -74,8 +75,9 @@ function CreationPage() {
     <FormProvider>
       <main className="w-full py-4">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold uppercase tracking-wide">
-            creation
+          <h1 className="flex items-center gap-x-2 text-xl font-bold uppercase tracking-wide">
+            <IconShape size={24} />
+            <span className="select-none">creation</span>
           </h1>
           <div className="flex items-center justify-around gap-x-4">
             <button
