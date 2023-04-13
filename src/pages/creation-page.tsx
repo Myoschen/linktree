@@ -10,7 +10,7 @@ function Forms() {
 
   const publish = () => {
     const url = `${window.location.origin}/linktree?data=${encode(
-      JSON.stringify(formData)
+      JSON.stringify({...formData, email: `mailto:${formData.email}`})
     )}`;
     navigator.clipboard.writeText(url).then(() => {
       alert('Link copied to clipboard');

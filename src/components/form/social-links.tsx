@@ -148,7 +148,7 @@ function SocialLinks() {
               onChange={(e) =>
                 setFormData((prev) => ({
                   ...prev,
-                  email: `mailto:${e.target.value}`,
+                  email: e.target.value,
                 }))
               }
             />
