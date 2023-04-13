@@ -30,7 +30,7 @@ function SocialLinks() {
         <IconSocial />
         <h2 className="ml-1 text-lg font-medium tracking-wide">Social Links</h2>
       </div>
-      <div className="mt-4 grid grid-cols-2 gap-8 border p-6">
+      <div className="mt-4 grid gap-8 border p-6 md:grid-cols-2">
         <div>
           <label className="block text-sm text-gray-700" htmlFor="facebook">
             Facebook
