@@ -1,46 +1,19 @@
-<h1 align="center">React Linktree</h1>
-
-<p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Myoschen/react-linktree?color=56BEB8">
-
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Myoschen/react-linktree?color=56BEB8">
-
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Myoschen/react-linktree?color=56BEB8">
-
-  <img alt="License" src="https://img.shields.io/github/license/Myoschen/react-linktree?color=56BEB8">
-
-  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/Myoschen/react-linktree?color=56BEB8" /> -->
-
-  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/Myoschen/react-linktree?color=56BEB8" /> -->
-
-  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/Myoschen/react-linktree?color=56BEB8" /> -->
+<p align='center'>
+  <img src='./logo.png' alt='react-linktree' width='120' />
 </p>
 
-<p align="center">
-  <a href="#camera-screenshots">Screenshots</a> &#xa0; | &#xa0;
-  <a href="#dart-about">About</a> &#xa0; | &#xa0;
-  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
-  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/Myoschen" target="_blank">Author</a>
-</p>
+<h1 align='center'>react-linktree</h1>
 
-<br>
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/Myoschen/react-linktree/main?style=flat-square&labelColor=%23222222&color=%23111111)
+![GitHub language count](https://img.shields.io/github/languages/count/Myoschen/react-linktree?style=flat-square&labelColor=%23222222&color=%23111111)
+![GitHub issues](https://img.shields.io/github/issues/Myoschen/react-linktree?style=flat-square&labelColor=%23222222&color=%23111111)
+![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/Myoschen/react-linktree/main?style=flat-square&label=version&labelColor=%23222222&color=%23111111)
+![GitHub top language](https://img.shields.io/github/languages/top/Myoschen/react-linktree?style=flat-square&labelColor=%23222222&color=%23111111)
+![GitHub License](https://img.shields.io/github/license/Myoschen/react-linktree?style=flat-square&labelColor=%23222222&color=%23111111)
 
-## :camera: Screenshots ##
+Build a Linktree with React, React Router, js-base64.
 
-![creation-page](./screenshots/creation-page.png)
-![preview](./screenshots/preview.png)
-![linktree-page](./screenshots/linktree-page.png)
-
-## :dart: About ##
-
-Build a Linktree with React.
-
-## :rocket: Technologies ##
-
-The following tools were used in this project:
+## Tech stack
 
 - [React](https://react.dev/)
 - [React Router](https://reactrouter.com/en/main)
@@ -51,34 +24,24 @@ The following tools were used in this project:
 - [Boring Avatars](https://boringavatars.com/)
 - [js-base64](https://www.npmjs.com/package/js-base64)
 
-## :white_check_mark: Requirements ##
-
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
-
-## :checkered_flag: Starting ##
+## Usage
 
 ```bash
-# Clone this project
+# clone repo
 $ git clone https://github.com/Myoschen/react-linktree
 
-# Access
+# change directory
 $ cd react-linktree
 
-# Install dependencies
+# install deps
 $ pnpm
 
-# Run the project
+# run
 $ pnpm dev
 
-# The server will initialize in the <http://localhost:5173>
+# open your browser and visit http://localhost:5173
 ```
 
-## :memo: License ##
+## License
 
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
-
-Made with :heart: by <a href="https://github.com/Myoschen" target="_blank">Myos</a>
-
-&#xa0;
-
-<a href="#top">Back to top</a>
+Licensed under the [MIT License](./LICENSE).
