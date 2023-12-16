@@ -4,7 +4,7 @@ import { decode } from 'js-base64'
 
 import Linktree from '@/components/linktree'
 
-function LinktreePage() {
+export default function LinktreePage() {
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
   const data = searchParams.get('data')
@@ -13,8 +13,7 @@ function LinktreePage() {
     if (!data) {
       navigate('/')
     }
-  }, [data])
+  }, [data, navigate])
 
   return <Linktree data={JSON.parse(decode(data!))} />
 }
-export default LinktreePage

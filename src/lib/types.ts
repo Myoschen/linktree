@@ -1,21 +1,21 @@
-type Link = {
+export type Link = {
   label: string
   url: string
 }
 
-type LinktreeData = {
+export type Linktree = {
   name: string
   about: string
-  photo: string
-  facebook: string
-  instagram: string
-  twitter: string
-  youtube: string
-  twitch: string
   email: string
-  github: string
-  linkedin: string
+  photo: string
+  socialLinks: {
+    facebook: string
+    instagram: string
+    x: string
+    youtube: string
+    twitch: string
+    github: string
+    linkedin: string
+  }
   links: Link[]
 }
-
-export type { LinktreeData }

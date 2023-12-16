@@ -1,103 +1,83 @@
-import { type ChangeEvent } from 'react'
+import { type ChangeEvent, useContext } from 'react'
 import { IconLink, IconPlus, IconX } from '@tabler/icons-react'
 
-import { useFormContext } from '@/stores/form'
+import { FormContext } from '@/stores/form'
 
-function Links() {
-  const { formData, setFormData } = useFormContext()
-  const { links } = formData
+export default function Links() {
+  const { formData, setFormData } = useContext(FormContext)
 
-  const onInputAdd = () =>
+  const addLink = () =>
     setFormData(prev => ({
       ...prev,
       links: [...prev.links, { label: '', url: '' }],
     }))
 
-  const onLabelChange
-    = (index: number) => (e: ChangeEvent<HTMLInputElement>) => {
-      const newLinks = [...links]
-      newLinks[index].label = e.target.value
-      setFormData(prev => ({
-        ...prev,
-        links: newLinks,
-      }))
-    }
-
-  const onURLChange = (index: number) => (e: ChangeEvent<HTMLInputElement>) => {
-    const newLinks = [...links]
-    newLinks[index].url = e.target.value
-    setFormData(prev => ({
-      ...prev,
-      links: newLinks,
-    }))
+  const changeLabel = (index: number) => (e: ChangeEvent<HTMLInputElement>) => {
+    const newLinks = [...formData.links]
+    newLinks[index].label = e.target.value
+    setFormData(prev => ({ ...prev, links: newLinks }))
   }
 
-  const onInputRemove = (index: number) => () => {
-    const newLinks = [...links]
+  const changeURL = (index: number) => (e: ChangeEvent<HTMLInputElement>) => {
+    const newLinks = [...formData.links]
+    newLinks[index].url = e.target.value
+    setFormData(prev => ({ ...prev, links: newLinks }))
+  }
+
+  const removeLink = (index: number) => () => {
+    const newLinks = [...formData.links]
     newLinks.splice(index, 1)
-    setFormData(prev => ({
-      ...prev,
-      links: newLinks,
-    }))
+    setFormData(prev => ({ ...prev, links: newLinks }))
   }
 
   return (
-    <div>
+    <div className={'flex flex-col gap-y-4'}>
       <div className={'flex items-center'}>
         <IconLink />
-        <h2 className={'ml-1 text-lg font-medium tracking-wide'}>{'Links'}</h2>
+        <h2 className={'ml-1 text-lg font-semibold tracking-wide'}>{'Links'}</h2>
       </div>
-      <div className={'mt-4 space-y-6 border p-6'}>
-        {links.map((link, index) => (
-          <div
-            className={'relative grid gap-8 border p-6 md:grid-cols-2'}
-            key={index}
-          >
+      <div className={'space-y-6 rounded-lg border p-6 shadow-sm'}>
+        {formData.links.map((link, index) => (
+          <div key={index} className={'relative grid gap-8 rounded-lg border p-6 shadow-sm md:grid-cols-2'}>
             <button
               className={'absolute right-2 top-2'}
               type={'button'}
-              onClick={onInputRemove(index)}
+              onClick={removeLink(index)}
             >
               <IconX size={20} />
             </button>
-            <div>
-              <label
-                className={'block text-sm text-gray-700'}
-                htmlFor={`label-${index}`}
-              >
+            <div className={'flex flex-col gap-y-1'}>
+              <label className={'block text-sm font-medium text-gray-700'} htmlFor={`label-${index}`}>
                 {'Label'}
               </label>
               <input
                 id={`label-${index}`}
-                className={'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm'}
+                className={'block w-full rounded-lg border-gray-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm'}
                 type={'text'}
                 placeholder={'Label'}
                 value={link.label}
-                onChange={onLabelChange(index)}
+                onChange={changeLabel(index)}
               />
             </div>
-            <div>
-              <label
-                className={'block text-sm text-gray-700'}
-                htmlFor={`url-${index}`}
-              >
+            <div className={'flex flex-col gap-y-1'}>
+              <label className={'block text-sm font-medium text-gray-700'} htmlFor={`url-${index}`}>
                 {'URL'}
               </label>
               <input
                 id={`url-${index}`}
-                className={'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 sm:text-sm'}
+                className={'block w-full rounded-lg border-gray-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm'}
                 type={'text'}
                 placeholder={'URL'}
                 value={link.url}
-                onChange={onURLChange(index)}
+                onChange={changeURL(index)}
               />
             </div>
           </div>
         ))}
         <button
-          className={'flex w-full items-center justify-center rounded-md border py-2 text-gray-500 hover:bg-gray-50'}
+          className={'flex w-full items-center justify-center rounded-lg border py-2 text-gray-500 hover:bg-gray-50'}
           type={'button'}
-          onClick={onInputAdd}
+          onClick={addLink}
         >
           <IconPlus />
         </button>
@@ -105,5 +85,3 @@ function Links() {
     </div>
   )
 }
-
-export default Links

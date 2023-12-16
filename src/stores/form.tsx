@@ -1,45 +1,50 @@
-import { createContext, type Dispatch, type ReactNode, type SetStateAction, useContext, useState } from 'react'
+import { createContext, type Dispatch, type ReactNode, type SetStateAction, useState } from 'react'
 
-import type { LinktreeData } from '@/lib/types'
+import type { Linktree } from '@/lib/types'
 
-type FormContextType = {
-  formData: LinktreeData
-  setFormData: Dispatch<SetStateAction<LinktreeData>>
-}
-
-const FormContext = createContext<FormContextType | undefined>(undefined)
-
-const FormProvider = ({ children }: { children: ReactNode }) => {
-  const [formData, setFormData] = useState<LinktreeData>({
-    name: '',
-    about: '',
-    photo: '',
+const defaultValue: Linktree = {
+  name: '',
+  about: '',
+  email: '',
+  photo: '',
+  socialLinks: {
     facebook: '',
     instagram: '',
-    twitter: '',
+    x: '',
     youtube: '',
     twitch: '',
-    email: '',
     github: '',
     linkedin: '',
-    links: [],
-  })
+  },
+  links: [],
+}
+
+type FormState = {
+  formData: Linktree
+  setFormData: Dispatch<SetStateAction<Linktree>>
+  resetFormData: () => void
+}
+
+export const FormContext = createContext<FormState>({
+  formData: defaultValue,
+  setFormData: () => {},
+  resetFormData: () => {},
+})
+
+interface FormProviderProps {
+  children: ReactNode
+}
+
+export default function FormProvider({ children }: FormProviderProps) {
+  const [formData, setFormData] = useState<Linktree>(defaultValue)
+
+  const resetFormData = () => {
+    setFormData(defaultValue)
+  }
 
   return (
-    <FormContext.Provider value={{ formData, setFormData }}>
+    <FormContext.Provider value={{ formData, setFormData, resetFormData }}>
       {children}
     </FormContext.Provider>
   )
 }
-
-const useFormContext = () => {
-  const context = useContext(FormContext)
-
-  if (context === undefined) {
-    throw new Error('useFormContext must be used within FormProvider.')
-  }
-
-  return context
-}
-
-export { FormProvider, useFormContext }

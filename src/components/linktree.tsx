@@ -4,7 +4,7 @@ import {
   IconBrandInstagram,
   IconBrandLinkedin,
   IconBrandTwitch,
-  IconBrandTwitter,
+  IconBrandX,
   IconBrandYoutube,
   IconExternalLink,
   IconLink,
@@ -12,96 +12,73 @@ import {
 } from '@tabler/icons-react'
 import Avatar from 'boring-avatars'
 
-import type { LinktreeData } from '@/lib/types'
+import type { Linktree } from '@/lib/types'
 
-interface Props {
-  data: LinktreeData
+const iconMap: Record<string, JSX.Element> = {
+  facebook: <IconBrandFacebook />,
+  instagram: <IconBrandInstagram />,
+  x: <IconBrandX />,
+  youtube: <IconBrandYoutube />,
+  twitch: <IconBrandTwitch />,
+  github: <IconBrandGithub />,
+  linkedin: <IconBrandLinkedin />,
+  email: <IconMail />,
 }
 
-function Linktree({ data }: Props) {
-  const { photo, name, about, links, ...rest } = data
-  const socialLinks = Object.entries(rest)
-    .map(([k, v]) => {
-      let icon
-      switch (k) {
-        case 'facebook':
-          icon = <IconBrandFacebook />
-          break
-        case 'instagram':
-          icon = <IconBrandInstagram />
-          break
-        case 'twitter':
-          icon = <IconBrandTwitter />
-          break
-        case 'youtube':
-          icon = <IconBrandYoutube />
-          break
-        case 'twitch':
-          icon = <IconBrandTwitch />
-          break
-        case 'email':
-          icon = <IconMail />
-          break
-        case 'github':
-          icon = <IconBrandGithub />
-          break
-        case 'linkedin':
-          icon = <IconBrandLinkedin />
-          break
-        default:
-          icon = <IconLink />
-      }
-      if (v.length > 0) {
-        return {
-          icon,
-          url: v,
-        }
-      }
+interface LinktreeProps {
+  data: Linktree
+}
+
+export default function Linktree({ data }: LinktreeProps) {
+  const socialLinks = Object
+    .entries(data.socialLinks)
+    .filter(([, v]) => v.length > 0)
+    .map(([k, url]) => {
+      const icon = iconMap[k] ?? <IconLink />
+      return { icon, url }
     })
-    .filter(o => o !== undefined)
+
+  console.log(socialLinks)
 
   return (
-    <div className={'mx-auto h-full w-full max-w-lg space-y-8 p-4 pt-12'}>
+    <div className={'mx-auto h-full w-full max-w-sm space-y-6 p-4 pt-12'}>
       <div className={'text-center'}>
-        {photo.length !== 0
+        {data.photo.length !== 0
           ? (
-            <div className={'mx-auto aspect-square w-20 overflow-hidden rounded-full ring-4 ring-emerald-200'}>
+            <div className={'mx-auto aspect-square w-20 overflow-hidden rounded-full ring-4 ring-zinc-200'}>
               <img
                 className={'h-full w-full object-cover'}
-                src={photo}
-                alt={'photo'}
+                src={data.photo}
+                alt={'Avatar'}
               />
             </div>
             )
           : (
-            <div className={'mx-auto aspect-square w-20 overflow-hidden rounded-full ring-4 ring-emerald-200'}>
-              <Avatar size={80} name={name} variant={'beam'} />
+            <div className={'mx-auto aspect-square w-20 overflow-hidden rounded-full ring-4 ring-zinc-200'}>
+              <Avatar size={80} name={data.name} variant={'beam'} />
             </div>
             )}
-        <h1 className={'mt-4 text-2xl font-bold'}>{name}</h1>
-        <p className={'mt-2 text-sm text-gray-600'}>{about}</p>
+        <h1 className={'mt-4 text-2xl font-bold'}>{data.name}</h1>
+        <p className={'mt-2 text-sm text-gray-600'}>{data.about}</p>
       </div>
       <div className={'flex flex-wrap items-center justify-center gap-x-2'}>
-        {socialLinks.map(s =>
-          s !== undefined
-            ? (
-              <span className={'p-1'} key={s.url}>
-                <a href={s.url} target={'_blank'} rel={'noopener | noreferrer'}>
-                  {s.icon}
-                </a>
-              </span>
-              )
-            : null
+        {socialLinks.map((link, index) => (
+          <span key={index} className={'p-1'}>
+            <a href={link.url} target={'_blank'} rel={'noreferrer'}>
+              {link.icon}
+            </a>
+          </span>
+        )
         )}
       </div>
       <ul className={'space-y-2'}>
-        {links.map(link => (
+        {data.links.map(link => (
           <li key={link.url}>
             <a
-              className={'flex items-center gap-x-4 rounded border px-4 py-2 shadow-sm hover:bg-gray-50'}
+              className={'flex items-center gap-x-4 rounded-lg border px-4 py-2 shadow-sm hover:bg-gray-50'}
               href={link.url}
               target={'_blank'}
-              rel={'noopener | noreferrer'}
+              rel={'noreferrer'}
             >
               <IconExternalLink size={20} />
               <span className={'text-sm'}>{link.label}</span>
@@ -112,5 +89,3 @@ function Linktree({ data }: Props) {
     </div>
   )
 }
-
-export default Linktree
