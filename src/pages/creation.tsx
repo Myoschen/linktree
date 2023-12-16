@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
-import { IconShape } from '@tabler/icons-react'
 import { encode } from 'js-base64'
 
+import Logo from '@/assets/logo.png'
 import Links from '@/components/form/links'
 import Profile from '@/components/form/profile'
 import SocialLinks from '@/components/form/social-links'
@@ -15,9 +15,9 @@ export default function CreationPage() {
     <FormProvider>
       <main className={'w-full py-4'}>
         <div className={'flex items-center justify-between'}>
-          <h1 className={'flex items-center gap-x-2 text-xl font-bold uppercase tracking-wide'}>
-            <IconShape size={24} />
-            <span className={'select-none'}>{'creation'}</span>
+          <h1 className={'flex items-center gap-x-2'}>
+            <img className={'aspect-square w-9 shadow-sm'} src={Logo} alt={'Logo'} />
+            <span className={'text-xl font-medium tracking-wide'}>{'react-linktree'}</span>
           </h1>
           <div className={'flex items-center justify-around gap-x-4'}>
             <button
