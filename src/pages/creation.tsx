@@ -61,14 +61,14 @@ function Forms() {
       <Links />
       <div className={'flex items-center gap-x-4'}>
         <button
-          className={'flex-1 rounded-lg border border-zinc-700/30 bg-zinc-700/10 p-2 text-sm font-medium text-zinc-950 transition-opacity ease-out hover:opacity-75'}
+          className={'flex-1 rounded-lg border bg-zinc-800 p-2 font-medium text-zinc-50 transition-opacity hover:opacity-90'}
           type={'button'}
           onClick={publish}
         >
           {'Publish'}
         </button>
         <button
-          className={'flex-1 rounded-lg border border-zinc-700/30 bg-zinc-700/10 p-2 text-sm font-medium text-zinc-950 transition-opacity ease-out hover:opacity-75'}
+          className={'flex-1 rounded-lg border bg-zinc-800 p-2 font-medium text-zinc-50 transition-opacity hover:opacity-90'}
           type={'button'}
           onClick={resetFormData}
         >
