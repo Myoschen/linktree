@@ -1,19 +1,20 @@
-import {decode} from 'js-base64';
-import {useLayoutEffect} from 'react';
-import {useNavigate, useSearchParams} from 'react-router-dom';
-import Linktree from '@/components/linktree';
+import { useLayoutEffect } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom'
+import { decode } from 'js-base64'
+
+import Linktree from '@/components/linktree'
 
 function LinktreePage() {
-  const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
-  const data = searchParams.get('data');
+  const [searchParams] = useSearchParams()
+  const navigate = useNavigate()
+  const data = searchParams.get('data')
 
   useLayoutEffect(() => {
     if (!data) {
-      navigate('/');
+      navigate('/')
     }
-  }, [data]);
+  }, [data])
 
-  return <Linktree data={JSON.parse(decode(data!))} />;
+  return <Linktree data={JSON.parse(decode(data!))} />
 }
-export default LinktreePage;
+export default LinktreePage

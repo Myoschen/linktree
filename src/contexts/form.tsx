@@ -1,15 +1,15 @@
-import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from 'react';
+import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from 'react'
 
-import type {LinktreeData} from '@/types';
+import type { LinktreeData } from '@/types'
 
 type FormContextType = {
-  formData: LinktreeData;
-  setFormData: Dispatch<SetStateAction<LinktreeData>>;
-};
+  formData: LinktreeData
+  setFormData: Dispatch<SetStateAction<LinktreeData>>
+}
 
-const FormContext = createContext<FormContextType | undefined>(undefined);
+const FormContext = createContext<FormContextType | undefined>(undefined)
 
-const FormProvider = ({children}: {children: ReactNode}) => {
+const FormProvider = ({ children }: { children: ReactNode }) => {
   const [formData, setFormData] = useState<LinktreeData>({
     name: '',
     about: '',
@@ -23,23 +23,23 @@ const FormProvider = ({children}: {children: ReactNode}) => {
     github: '',
     linkedin: '',
     links: [],
-  });
+  })
 
   return (
-    <FormContext.Provider value={{formData, setFormData}}>
+    <FormContext.Provider value={{ formData, setFormData }}>
       {children}
     </FormContext.Provider>
-  );
-};
+  )
+}
 
 const useFormContext = () => {
-  const context = useContext(FormContext);
+  const context = useContext(FormContext)
 
   if (context === undefined) {
-    throw new Error('useFormContext must be used within FormProvider.');
+    throw new Error('useFormContext must be used within FormProvider.')
   }
 
-  return context;
-};
+  return context
+}
 
-export {FormProvider, useFormContext};
+export { FormProvider, useFormContext }
