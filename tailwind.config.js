@@ -1,12 +1,15 @@
+import forms from '@tailwindcss/forms'
+import { fontFamily } from 'tailwindcss/defaultTheme'
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{ts,tsx,js,jsx}'],
   theme: {
     extend: {
       fontFamily: {
-        inter: ['Inter', 'san-serif'],
+        sans: ['var(--font-open-sans)', ...fontFamily.sans],
       },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
-};
+  plugins: [forms()],
+}
