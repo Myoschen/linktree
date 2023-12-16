@@ -12,7 +12,7 @@ import {
 } from '@tabler/icons-react'
 import Avatar from 'boring-avatars'
 
-import type { LinktreeData } from '@/types'
+import type { LinktreeData } from '@/lib/types'
 
 interface Props {
   data: LinktreeData

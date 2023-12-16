@@ -1,6 +1,6 @@
-import { createContext, Dispatch, ReactNode, SetStateAction, useContext, useState } from 'react'
+import { createContext, type Dispatch, type ReactNode, type SetStateAction, useContext, useState } from 'react'
 
-import type { LinktreeData } from '@/types'
+import type { LinktreeData } from '@/lib/types'
 
 type FormContextType = {
   formData: LinktreeData
