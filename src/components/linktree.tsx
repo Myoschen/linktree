@@ -45,7 +45,7 @@ export default function Linktree({ data }: LinktreeProps) {
       <div className={'text-center'}>
         {data.photo.length !== 0
           ? (
-            <div className={'mx-auto aspect-square w-20 overflow-hidden rounded-full ring-4 ring-zinc-200'}>
+            <div className={'mx-auto aspect-square w-20 overflow-hidden rounded-full ring-4 ring-ring'}>
               <img
                 className={'h-full w-full object-cover'}
                 src={data.photo}
@@ -54,17 +54,17 @@ export default function Linktree({ data }: LinktreeProps) {
             </div>
             )
           : (
-            <div className={'mx-auto aspect-square w-20 overflow-hidden rounded-full ring-4 ring-zinc-200'}>
+            <div className={'mx-auto aspect-square w-20 overflow-hidden rounded-full ring-4 ring-ring'}>
               <Avatar size={80} name={data.name} variant={'beam'} />
             </div>
             )}
         <h1 className={'mt-4 text-2xl font-bold'}>{data.name}</h1>
-        <p className={'mt-2 text-sm text-gray-600'}>{data.about}</p>
+        <p className={'mt-2 text-sm text-zinc-500'}>{data.about}</p>
       </div>
       <div className={'flex flex-wrap items-center justify-center gap-x-2'}>
         {socialLinks.map((link, index) => (
           <span key={index} className={'p-1'}>
-            <a href={link.url} target={'_blank'} rel={'noreferrer'}>
+            <a className={'transition-opacity hover:opacity-50'} href={link.url} target={'_blank'} rel={'noreferrer'}>
               {link.icon}
             </a>
           </span>
@@ -75,7 +75,7 @@ export default function Linktree({ data }: LinktreeProps) {
         {data.links.map(link => (
           <li key={link.url}>
             <a
-              className={'flex items-center gap-x-4 rounded-lg border px-4 py-2 shadow-sm hover:bg-gray-50'}
+              className={'flex items-center gap-x-4 rounded-lg border px-4 py-2 shadow-sm transition-opacity hover:opacity-50'}
               href={link.url}
               target={'_blank'}
               rel={'noreferrer'}

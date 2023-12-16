@@ -5,5 +5,36 @@
 @layer base {
   :root {
     --font-open-sans: 'Open Sans Variable';
+    --background: theme('colors.zinc.100');
+    --foreground: theme('colors.zinc.950');
+    --border: theme('colors.zinc.300');
+    --input: theme('colors.zinc.50');
+    --ring: theme('colors.zinc.500');
+  }
+
+  .dark {
+    --background: theme('colors.zinc.900');
+    --foreground: theme('colors.zinc.50');
+    --border: theme('colors.zinc.700');
+    --input: theme('colors.zinc.950');
+    --ring: theme('colors.zinc.600');
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  [type='text'], textarea {
+    @apply bg-input border border-border;
+  }
+
+  [type='text']:focus, textarea:focus {
+    @apply ring-2 border-border ring-ring ring-offset-background ring-offset-2;
   }
 }

@@ -19,3 +19,5 @@ export type Linktree = {
   }
   links: Link[]
 }
+
+export type Theme = 'light' | 'dark'

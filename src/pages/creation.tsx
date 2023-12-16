@@ -6,6 +6,7 @@ import Links from '@/components/form/links'
 import Profile from '@/components/form/profile'
 import SocialLinks from '@/components/form/social-links'
 import Linktree from '@/components/linktree'
+import ThemeSwitch from '@/components/theme-switch'
 import FormProvider, { FormContext } from '@/stores/form'
 
 export default function CreationPage() {
@@ -21,19 +22,20 @@ export default function CreationPage() {
           </h1>
           <div className={'flex items-center justify-around gap-x-4'}>
             <button
-              className={'text-sm font-medium underline-offset-2 hover:text-zinc-600 hover:underline'}
+              className={'text-sm font-medium underline-offset-2 hover:underline'}
               type={'button'}
               onClick={() => setIsPreview(false)}
             >
               {'Form'}
             </button>
             <button
-              className={'text-sm font-medium underline-offset-2 hover:text-zinc-600 hover:underline'}
+              className={'text-sm font-medium underline-offset-2 hover:underline'}
               type={'button'}
               onClick={() => setIsPreview(true)}
             >
               {'Preview'}
             </button>
+            <ThemeSwitch />
           </div>
         </div>
         <div className={'mt-6'}>{isPreview ? <Preview /> : <Forms />}</div>
@@ -67,14 +69,14 @@ function Forms() {
       <Links />
       <div className={'flex items-center gap-x-4'}>
         <button
-          className={'flex-1 rounded-lg border bg-zinc-800 p-2 font-medium text-zinc-50 transition-opacity hover:opacity-90'}
+          className={'flex-1 rounded-lg border p-2 font-medium transition-opacity hover:opacity-50'}
           type={'button'}
           onClick={publish}
         >
           {'Publish'}
         </button>
         <button
-          className={'flex-1 rounded-lg border bg-zinc-800 p-2 font-medium text-zinc-50 transition-opacity hover:opacity-90'}
+          className={'flex-1 rounded-lg border p-2 font-medium transition-opacity hover:opacity-50'}
           type={'button'}
           onClick={resetFormData}
         >

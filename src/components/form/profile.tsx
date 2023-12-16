@@ -14,12 +14,12 @@ export default function Profile() {
       </div>
       <div className={'space-y-6 rounded-lg border p-6 shadow-sm'}>
         <div className={'flex flex-col gap-y-1'}>
-          <label className={'block text-sm font-medium text-gray-700'} htmlFor={'name'}>
+          <label className={'block text-sm font-medium'} htmlFor={'name'}>
             {'Name'}
           </label>
           <input
             id={'name'}
-            className={'block w-full rounded-lg border-gray-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm'}
+            className={'block w-full rounded-lg shadow-sm sm:text-sm'}
             type={'text'}
             placeholder={'Your name'}
             value={formData.name}
@@ -27,24 +27,24 @@ export default function Profile() {
           />
         </div>
         <div className={'flex flex-col gap-y-1'}>
-          <label className={'block text-sm font-medium text-gray-700'} htmlFor={'about'}>
+          <label className={'block text-sm font-medium'} htmlFor={'about'}>
             {'About'}
           </label>
           <textarea
             id={'about'}
-            className={'block w-full rounded-lg border-gray-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm'}
+            className={'block w-full rounded-lg shadow-sm sm:text-sm'}
             placeholder={'I am a developer.'}
             value={formData.about}
             onChange={e => setFormData(prev => ({ ...prev, about: e.target.value }))}
           />
         </div>
         <div className={'flex flex-col gap-y-1'}>
-          <label className={'block text-sm font-medium text-gray-700'} htmlFor={'photo'}>
+          <label className={'block text-sm font-medium'} htmlFor={'photo'}>
             {'Photo URL'}
           </label>
           <input
             id={'photo'}
-            className={'block w-full rounded-lg border-gray-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm'}
+            className={'block w-full rounded-lg shadow-sm sm:text-sm'}
             type={'text'}
             placeholder={'https://i.imgur.com/...'}
             value={formData.photo}

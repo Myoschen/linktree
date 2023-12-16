@@ -47,12 +47,12 @@ export default function Links() {
               <IconX size={20} />
             </button>
             <div className={'flex flex-col gap-y-1'}>
-              <label className={'block text-sm font-medium text-gray-700'} htmlFor={`label-${index}`}>
+              <label className={'block text-sm font-medium'} htmlFor={`label-${index}`}>
                 {'Label'}
               </label>
               <input
                 id={`label-${index}`}
-                className={'block w-full rounded-lg border-gray-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm'}
+                className={'block w-full rounded-lg shadow-sm focus:ring-2 sm:text-sm'}
                 type={'text'}
                 placeholder={'Label'}
                 value={link.label}
@@ -60,12 +60,12 @@ export default function Links() {
               />
             </div>
             <div className={'flex flex-col gap-y-1'}>
-              <label className={'block text-sm font-medium text-gray-700'} htmlFor={`url-${index}`}>
+              <label className={'block text-sm font-medium'} htmlFor={`url-${index}`}>
                 {'URL'}
               </label>
               <input
                 id={`url-${index}`}
-                className={'block w-full rounded-lg border-gray-300 shadow-sm focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm'}
+                className={'block w-full rounded-lg shadow-sm focus:ring-2 sm:text-sm'}
                 type={'text'}
                 placeholder={'URL'}
                 value={link.url}
@@ -75,7 +75,7 @@ export default function Links() {
           </div>
         ))}
         <button
-          className={'flex w-full items-center justify-center rounded-lg border py-2 text-gray-500 hover:bg-gray-50'}
+          className={'flex w-full items-center justify-center rounded-lg border py-2 transition-opacity hover:opacity-50'}
           type={'button'}
           onClick={addLink}
         >

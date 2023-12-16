@@ -97,16 +97,16 @@ function IconInput({ icon, label, value, placeholder, onValueChange }: IconInput
 
   return (
     <div className={'flex flex-col gap-y-1'}>
-      <label className={'block text-sm font-medium text-gray-700'} htmlFor={id}>
+      <label className={'block text-sm font-medium'} htmlFor={id}>
         {label}
       </label>
       <div className={'flex rounded-lg shadow-sm'}>
-        <span className={'inline-flex items-center rounded-l-md border border-r-0 border-gray-300 bg-gray-50 px-2 text-gray-500'}>
+        <span className={'inline-flex items-center rounded-l-md border border-r-0 bg-zinc-200 px-2 dark:bg-zinc-800'}>
           {icon}
         </span>
         <input
           id={id}
-          className={'block w-full flex-1 rounded-none rounded-r-md border-gray-300 focus:border-zinc-500 focus:ring-zinc-500 sm:text-sm'}
+          className={'block w-full flex-1 rounded-none rounded-r-md sm:text-sm'}
           type={'text'}
           placeholder={placeholder}
           value={value}
