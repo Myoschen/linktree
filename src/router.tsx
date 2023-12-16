@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
 
 import RootLayout from '@/components/root-layout'
-import CreationPage from '@/pages/creation-page'
-import LinktreePage from '@/pages/linktree-page'
+import CreationPage from '@/pages/creation'
+import LinktreePage from '@/pages/linktree'
 
 const router = createBrowserRouter([
   {
