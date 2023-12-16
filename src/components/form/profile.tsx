@@ -1,6 +1,6 @@
 import { IconUserCircle } from '@tabler/icons-react'
 
-import { useFormContext } from '@/contexts/form'
+import { useFormContext } from '@/stores/form'
 
 function Profile() {
   const { formData, setFormData } = useFormContext()

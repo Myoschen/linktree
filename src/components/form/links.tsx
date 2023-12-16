@@ -1,7 +1,7 @@
-import { ChangeEvent } from 'react'
+import { type ChangeEvent } from 'react'
 import { IconLink, IconPlus, IconX } from '@tabler/icons-react'
 
-import { useFormContext } from '@/contexts/form'
+import { useFormContext } from '@/stores/form'
 
 function Links() {
   const { formData, setFormData } = useFormContext()

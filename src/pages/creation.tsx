@@ -4,7 +4,7 @@ import { encode } from 'js-base64'
 
 import { Links, Profile, SocialLinks } from '@/components/form'
 import Linktree from '@/components/linktree'
-import { FormProvider, useFormContext } from '@/contexts/form'
+import { FormProvider, useFormContext } from '@/stores/form'
 
 function Forms() {
   const { formData, setFormData } = useFormContext()

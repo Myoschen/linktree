@@ -10,7 +10,7 @@ import {
   IconSocial,
 } from '@tabler/icons-react'
 
-import { useFormContext } from '@/contexts/form'
+import { useFormContext } from '@/stores/form'
 
 function SocialLinks() {
   const { formData, setFormData } = useFormContext()
