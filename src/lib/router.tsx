@@ -18,10 +18,10 @@ export const router = createBrowserRouter([
         path: 'linktree',
         element: <LinktreePage />,
       },
+      {
+        path: '*',
+        element: <NotFoundPage />,
+      },
     ],
-  },
-  {
-    path: '*',
-    element: <NotFoundPage />,
   },
 ])
