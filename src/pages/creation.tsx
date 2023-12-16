@@ -45,13 +45,19 @@ export default function CreationPage() {
 function Forms() {
   const { formData, resetFormData } = useContext(FormContext)
 
-  const publish = () => {
-    const url = `${window.location.origin}/linktree?data=${encode(
-      JSON.stringify({ ...formData, email: `mailto:${formData.email}` })
-    )}`
-    navigator.clipboard.writeText(url).then(() => {
+  const publish = async () => {
+    try {
+      const origin = window.location.origin
+      const encoded = encode(JSON.stringify({ ...formData, email: `mailto:${formData.email}` }))
+      const url = `${origin}/linktree?data=${encoded}`
+      await navigator.clipboard.writeText(url)
       alert('Link copied to clipboard')
-    })
+    }
+    catch (error) {
+      if (error instanceof Error) {
+        alert(error.message)
+      }
+    }
   }
 
   return (
